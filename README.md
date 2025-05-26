@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on Realtime Chatapp.<br>🌱 I’m currently learning React, Nextjs, Typescript,Mongodb, Nodejs, Expressjs.<br>💬 Ask me about Frontend frameworks like Next.js, React, and Tailwind CSS.  <br>⚡ Fun fact  I started coding at 15 and love turning ideas into apps that people can use!
+🔭 I’m currently working on Realtime Chatapp.<br>🌱 I’m currently learning React, Nextjs, Typescript, Mongodb, Nodejs, Expressjs.<br>💬 Ask me about Frontend frameworks like Next.js, React, and Tailwind CSS.  <br>⚡ Fun fact  I started coding at 15 and love turning ideas into apps that people can use!
 
 
 ## 🌐 Socials:
