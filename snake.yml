@@ -1,58 +1,42 @@
-name: GitHub Snake Game 🐍
-
-# This workflow generates a snake animation of your contributions and deploys it to the output branch.
-# See https://github.com/Platane/snk for more info.
+name: GitHub Snake Game
 
 on:
-  # Run at midnight UTC every day
   schedule:
     - cron: "0 0 * * *"
-  # Allow manual run
+
   workflow_dispatch:
-  # Run on push to main
+
   push:
     branches:
       - main
-
 jobs:
-  generate-snake:
+  generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      # Step 1: Checkout code
+
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Step 2: Generate snake animation
       - name: Generate GitHub Contributions Snake Animations
         uses: Platane/snk@v3
         with:
-          # Change this to your username if you fork!
+
           github_user_name: ${{ github.repository_owner }}
+
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
 
-      # Step 3: Upload generated files as artifacts (for download/debugging)
-      - name: Upload snake files as artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: snake-animations
-          path: dist/
-
-      # Step 4: Deploy files to output branch using GitHub Pages Action
       - name: Deploy to Output Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: output
-          commit_message: "Update snake animation [skip ci]"
 
-      # Step 5: Optional - Fail gracefully if previous steps failed
-      - name: Check for errors
-        if: failure()
-        run: echo "Snake generation failed. Please check the logs."
+          commit_message: "Update snake animation [skip ci]"
